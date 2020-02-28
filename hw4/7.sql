@@ -4,7 +4,7 @@ FROM (
 	FROM (
 		SELECT SUM(filteredb.ab) as totab, filteredb.playerid
 		FROM (
-			SELECT DISTINCT batting.playerid, batting.yearid, batting.teamid, batting.ab 
+			SELECT batting.playerid, batting.yearid, batting.teamid, batting.ab 
 			FROM master
 			JOIN batting
 				ON master.playerid = batting.playerid
