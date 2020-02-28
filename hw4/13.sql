@@ -1,4 +1,4 @@
-	select distinct mas.namefirst as first, mas.namelast as last, mas.weight
+	select mas.namefirst as first, mas.namelast as last
 	from
 	(
 		select playerid, yearid, ab, h
