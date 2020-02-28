@@ -1,4 +1,4 @@
-SELECT abalot.playerid, SUM(abalot.h/abalot.totab)
+SELECT abalot.playerid, SUM(CAST(abalot.h AS DECIMAL)/CAST(abalot.totab AS DECIMAL))
 FROM (
 	SELECT DISTINCT batting.playerid, batting.yearid, batting.teamid, batting.h, batting.ab, career.totab
 	FROM (
@@ -18,4 +18,4 @@ FROM (
 	WHERE career.totab > 300
 ) AS abalot
 GROUP BY abalot.playerid
-ORDER BY SUM(abalot.h/abalot.totab) DESC
+ORDER BY SUM(CAST(abalot.h AS DECIMAL)/CAST(abalot.totab AS DECIMAL)) DESC
