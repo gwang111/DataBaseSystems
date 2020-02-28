@@ -1,4 +1,4 @@
-SELECT DISTINCT teams.park, dsw.t
+SELECT DISTINCT teams.park
 FROM (
 	SELECT seriespost.teamidwinner AS t, seriespost.yearid
 	FROM seriespost
