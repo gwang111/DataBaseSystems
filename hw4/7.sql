@@ -1,4 +1,4 @@
-SELECT abalot.playerid, SUM(CAST(abalot.h AS DECIMAL)/CAST(abalot.totab AS DECIMAL))
+SELECT abalot.playerid, SUM(CAST(abalot.h AS DECIMAL)/CAST(abalot.totab AS DECIMAL)) AS career_avg
 FROM (
 	SELECT DISTINCT batting.playerid, batting.yearid, batting.teamid, batting.h, batting.ab, career.totab
 	FROM (

@@ -1,4 +1,4 @@
-select first, last, appearances / 8
+select first, last, appearances
 
 from
 

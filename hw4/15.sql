@@ -1,4 +1,4 @@
-SELECT DISTINCT nyplayers.namefirst, nyplayers.namelast, nyplayers.birthcity
+SELECT DISTINCT nyplayers.namefirst AS first, nyplayers.namelast AS last, nyplayers.birthcity AS city
 FROM (
 	SELECT master.playerid, master.birthcity, master.namefirst, master.namelast
 	FROM master

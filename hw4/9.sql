@@ -1,4 +1,4 @@
-SELECT totteamsals.yearid, AVG(totteamsals.teamtot)
+SELECT totteamsals.yearid AS year, AVG(totteamsals.teamtot) AS salary
 FROM (	
 	SELECT SUM(CAST(teamsals.salary AS DECIMAL)) as teamtot, teamsals.teamid, teamsals.yearid
 	FROM (

@@ -1,4 +1,4 @@
-SELECT gettheyears.yearid
+SELECT gettheyears.yearid AS years
 FROM (
 	SELECT DISTINCT topmanagers.yearid, teams.teamid
 	FROM (	

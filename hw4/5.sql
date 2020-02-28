@@ -1,4 +1,4 @@
-SELECT avgsperyear.franchname, AVG(avgsperyear.avgatt)
+SELECT avgsperyear.franchname AS franchise, AVG(avgsperyear.avgatt) AS attendance
 FROM (
 	SELECT AVG(CAST(combinedtable.attendance AS DECIMAL)) AS avgatt, combinedtable.yearid, combinedtable.franchname
 	FROM (	

@@ -1,4 +1,4 @@
-SELECT DISTINCT schools.name_full, topschools.players
+SELECT DISTINCT schools.name_full AS school_name, topschools.players AS count
 FROM (	
 	SELECT colallstars.schoolid, COUNT(colallstars.playerid) AS players
 	FROM (
