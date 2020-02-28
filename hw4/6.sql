@@ -1,22 +1,21 @@
-SELECT final.namefirst, final.namelast, final.apps, final.votes
-FROM(
-	SELECT DISTINCT master.namefirst, master.namelast, topeight.apps, topeight.votes
-	FROM (
-		SELECT COUNT(asapps.yearid) AS apps, asapps.playerid, asapps.votes
-		FROM (
-			SELECT DISTINCT filthof.playerid, allstarfull.yearid, filthof.votes
-			FROM (
-				SELECT *
-				FROM halloffame
-				WHERE halloffame.yearid = 2000
-			) AS filthof
-			JOIN allstarfull
-				ON filthof.playerid = allstarfull.playerid
-		) AS asapps
-		GROUP BY asapps.playerid, asapps.votes
-	) AS topeight
-	JOIN master
-		ON topeight.playerid = master.playerid
-	ORDER BY topeight.apps DESC, topeight.votes DESC 
-) AS final
-limit 8
+select first, last, appearances / 8
+
+from
+
+(select max(namefirst) as first, max(namelast) as last, count(a.playerid) as appearances, sum(h.votes) as votes
+
+from master m
+
+left join halloffame h on h.playerid = m.playerid
+
+left join allstarfull a on a.playerid = m.playerid
+
+where h.yearid = 2000
+
+group by a.playerid
+
+order by count(a.playerid) desc, sum(h.votes) desc
+
+limit 8) as s
+
+order by appearances desc, votes
