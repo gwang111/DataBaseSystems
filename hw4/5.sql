@@ -2,7 +2,7 @@ SELECT avgsperyear.franchname AS franchise, AVG(avgsperyear.avgatt) AS attendanc
 FROM (
 	SELECT AVG(CAST(combinedtable.attendance AS DECIMAL)) AS avgatt, combinedtable.yearid, combinedtable.franchname
 	FROM (	
-		SELECT DISTINCT teamsfranchises.franchid,  filteredteam.yearid, filteredteam.attendance, teamsfranchises.franchname
+		SELECT teamsfranchises.franchid,  filteredteam.yearid, filteredteam.attendance, teamsfranchises.franchname
 		FROM (
 			SELECT *
 			FROM teams

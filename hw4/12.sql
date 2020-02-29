@@ -1,10 +1,10 @@
-SELECT DISTINCT teams.name
+SELECT teams.name
 FROM (
 	SELECT MAX(teams.yearid) as yearid, teams.franchid
 	FROM (
 		SELECT COUNT(yearid) AS losses, lcsround.teamidloser
 		FROM (	
-			SELECT DISTINCT seriespost.teamidloser, seriespost.yearid
+			SELECT seriespost.teamidloser, seriespost.yearid
 			FROM seriespost
 			WHERE seriespost.round LIKE '%LCS%'
 		) AS lcsround

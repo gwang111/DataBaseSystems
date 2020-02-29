@@ -2,7 +2,7 @@ SELECT totSals.yearid AS year, sal AS salary
 FROM (
 	SELECT yearid, SUM(salary) AS sal
 	FROM (
-		SELECT DISTINCT *
+		SELECT *
 		FROM (
 			SELECT teams.teamid AS t, teams.yearid AS y
 			FROM teams

@@ -1,18 +1,18 @@
-	select mas.namefirst as first, mas.namelast as last
-	from
-	(
-		select playerid, yearid, ab, h
-		from batting
-		where stint = 2
-	) as sec
-	join
-	(
-		select playerid, yearid, ab, h
-		from batting
-		where stint = 1
-	) as firs 
-	on firs.playerid = sec.playerid and firs.yearid = sec.yearid
-	join master mas 
-		on mas.playerid = sec.playerid
-	where sec.ab > firs.ab and sec.h < firs.h
-	order by mas.weight desc
+SELECT master.namefirst AS first, master.namelast AS last
+FROM
+(
+	SELECT batting.playerid, batting.yearid, batting.ab, batting.h
+	FROM batting
+	WHERE batting.stint = 2
+) AS sec
+JOIN
+(
+	SELECT batting.playerid, batting.yearid, batting.ab, batting.h
+	FROM batting
+	WHERE batting.stint = 1
+) AS firs 
+ON firs.playerid = sec.playerid AND firs.yearid = sec.yearid
+JOIN master 
+	ON master.playerid = sec.playerid
+WHERE sec.ab > firs.ab AND sec.h < firs.h
+ORDER BY master.weight DESC

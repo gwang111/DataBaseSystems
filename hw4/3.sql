@@ -1,8 +1,8 @@
 SELECT gettheyears.yearid AS years
 FROM (
-	SELECT DISTINCT topmanagers.yearid, teams.teamid
+	SELECT topmanagers.yearid, teams.teamid
 	FROM (	
-		SELECT DISTINCT managers.playerid, managers.teamid, managers.yearid
+		SELECT managers.playerid, managers.teamid, managers.yearid
 		FROM (
 			SELECT MAX(managers.w) AS wins, managers.yearid
 			FROM managers

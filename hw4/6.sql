@@ -1,21 +1,13 @@
-select first, last, appearances
-
-from
-
-(select max(namefirst) as first, max(namelast) as last, count(a.playerid) as appearances, sum(h.votes) as votes
-
-from master m
-
-left join halloffame h on h.playerid = m.playerid
-
-left join allstarfull a on a.playerid = m.playerid
-
-where h.yearid = 2000
-
-group by a.playerid
-
-order by count(a.playerid) desc, sum(h.votes) desc
-
-limit 8) as s
-
-order by appearances desc, votes
+SELECT first, last, appearances
+FROM
+(
+	SELECT MAX(master.namefirst) AS first, MAX(master.namelast) AS last, COUNT(allstarfull.playerid) AS appearances, SUM(halloffame.votes) AS votes
+	FROM master
+	LEFT JOIN halloffame ON halloffame.playerid = master.playerid
+	LEFT JOIN allstarfull ON allstarfull.playerid = master.playerid
+	WHERE halloffame.yearid = 2000
+	GROUP BY allstarfull.playerid
+	ORDER BY COUNT(allstarfull.playerid) DESC, SUM(halloffame.votes) DESC
+	limit 8
+) AS s
+ORDER BY s.appearances desc, votes
