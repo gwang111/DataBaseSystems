@@ -5,11 +5,11 @@ FROM (
 		SELECT DISTINCT allstarfull.playerid, collegeplaying.schoolid
 		FROM collegeplaying
 		JOIN allstarfull
-		ON collegeplaying.playerid = allstarfull.playerid
+			ON collegeplaying.playerid = allstarfull.playerid
 	) AS colallstars
 	GROUP BY colallstars.schoolid
 ) AS topschools
 JOIN schools
- ON topschools.schoolid = schools.schoolid
+	ON topschools.schoolid = schools.schoolid
 ORDER BY topschools.players DESC
 limit 10
