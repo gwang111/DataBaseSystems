@@ -6,7 +6,7 @@ FROM (
 		FROM collegeplaying
 		JOIN allstarfull
 		ON collegeplaying.playerid = allstarfull.playerid
-	) as colallstars
+	) AS colallstars
 	GROUP BY colallstars.schoolid
 ) AS topschools
 JOIN schools

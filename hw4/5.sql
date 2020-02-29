@@ -7,11 +7,11 @@ FROM (
 			SELECT *
 			FROM teams
 			WHERE teams.yearid >= 1997
-		) as filteredteam
+		) AS filteredteam
 		JOIN teamsfranchises
 			ON filteredteam.franchid = teamsfranchises.franchid
-	) as combinedtable
+	) AS combinedtable
 	GROUP BY combinedtable.franchname, combinedtable.yearid
-) avgsperyear
+) AS avgsperyear
 GROUP BY avgsperyear.franchname
 ORDER BY avgsperyear.franchname

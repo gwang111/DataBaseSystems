@@ -1,4 +1,4 @@
-SELECT first, last, appearances
+SELECT s.first, s.last, appearances
 FROM
 (
 	SELECT MAX(master.namefirst) AS first, MAX(master.namelast) AS last, COUNT(allstarfull.playerid) AS appearances, SUM(halloffame.votes) AS votes
@@ -10,4 +10,4 @@ FROM
 	ORDER BY COUNT(allstarfull.playerid) DESC, SUM(halloffame.votes) DESC
 	limit 8
 ) AS s
-ORDER BY s.appearances desc, votes
+ORDER BY s.appearances desc, s.votes

@@ -13,5 +13,5 @@ FROM(
 			AND batting.yearid = 1995
 		) AS  batters
 	WHERE short.playerid = batters.playerid
-	AND CAST(batters.h as DECIMAL) / CAST(batters.ab as DECIMAL) > 0.300
+	AND CAST(batters.h AS DECIMAL) / CAST(batters.ab AS DECIMAL) > 0.300
 ) AS distinctbatters
